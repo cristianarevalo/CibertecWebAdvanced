@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CibertecWeb.Models;
+using Cibertec.Models;
+using Cibertec.UnitOfWork;
 
-namespace CibertecWeb.Controllers
+namespace Cibertec.Controllers
 {
     public class SupplierController : Controller
     {
-        private readonly NorthwindDbContext _db;
+        private readonly IUnitOfWork _unit;
 
-        public SupplierController(NorthwindDbContext db) {
-            _db = db;
+        public SupplierController(IUnitOfWork unit)
+        {
+            _unit = unit;
         }
 
         public IActionResult Index()
         {
-            return View(_db.Suppliers);
+            return View(_unit.Suppliers.GetAll());
         }
     }
 }

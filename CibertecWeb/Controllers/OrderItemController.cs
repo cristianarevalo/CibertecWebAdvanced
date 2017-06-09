@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Cibertec.Models;
 using Cibertec.UnitOfWork;
 
-namespace Cibertec.Controllers
+namespace Cibertec.Web.Controllers
 {
-    public class ProductController : Controller
+    public class OrderItemController : Controller
     {
         private readonly IUnitOfWork _unit;
 
-        public ProductController(IUnitOfWork unit)
+        public OrderItemController(IUnitOfWork unit)
         {
             _unit = unit;
         }
 
         public IActionResult Index()
         {
-            return View(_unit.Products.GetAll());
+            return View(_unit.OrderItems.GetAll());
         }
     }
 }

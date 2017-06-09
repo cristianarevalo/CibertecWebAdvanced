@@ -8,29 +8,23 @@ using Cibertec.UnitOfWork;
 
 namespace Cibertec.Controllers
 {
-    public class CustomerController : Controller
+    public class OrderController : Controller
     {
-        ////readonly: solo puede ser asigna en el contructor
         //private readonly NorthwindDbContext _db;
-        //public CustomerController(NorthwindDbContext db) {
+        //public OrderController(NorthwindDbContext db)
+        //{
         //    _db = db;
         //}
 
-        //public IActionResult Index()
-        //{
-        //    return View(_db.Customers);
-        //}
-
-        //trabajando con el Unit of Work
         private readonly IUnitOfWork _unit;
-        public CustomerController(IUnitOfWork unit)
+        public OrderController(IUnitOfWork unit)
         {
             _unit = unit;
         }
 
         public IActionResult Index()
         {
-            return View(_unit.Customers.GetAll());
+            return View(_unit.Orders.GetAll());
         }
     }
 }

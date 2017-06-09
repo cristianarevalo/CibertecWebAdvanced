@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CibertecWeb.Models
+namespace Cibertec.Models
 {
     public class product
     {

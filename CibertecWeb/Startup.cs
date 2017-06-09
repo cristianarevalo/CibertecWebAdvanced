@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using CibertecWeb.Models;
+using Cibertec.Models;
 using Microsoft.EntityFrameworkCore;
+using Cibertec.UnitOfWork;
 
-namespace CibertecWeb
+namespace Cibertec
 {   //Aca inicia la aplicacion
     public class Startup
     {
@@ -32,9 +33,23 @@ namespace CibertecWeb
         {
             // Add framework services.
             //injectar como un servicio el dbcontext
-            services.AddDbContext<NorthwindDbContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("Northwind"))
-                );
+            //services.AddDbContext<NorthwindDbContext>(
+            //    options => options.UseSqlServer(Configuration.GetConnectionString("Northwind"))
+            //    );
+
+            ////genera una instancion por cada peticion (unit of work con EF)
+            //services.AddTransient<IUnitOfWork>(
+            //    option => new EFUnitOfWork(
+            //        new NorthwindDbContext(
+            //            new DbContextOptionsBuilder<NorthwindDbContext>()
+            //            .UseSqlServer(Configuration.GetConnectionString("Northwind"))
+            //            .Options
+            //            )
+            //        )
+            //    );
+
+            //para trabajar con dapper
+            services.AddSingleton<IUnitOfWork>(option => new CibertecUnitOfWork(Configuration.GetConnectionString("Northwind")));
 
             services.AddMvc();
         }
