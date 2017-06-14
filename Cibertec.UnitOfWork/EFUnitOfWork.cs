@@ -1,15 +1,11 @@
-﻿using System;
-using Cibertec.Models;
-using Cibertec.Repositories;
-using Cibertec.Repositories.Northwind;
+﻿using Cibertec.Repositories.Northwind;
 using Cibertec.Repositories.Northwind.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cibertec.UnitOfWork
 {
     public class EFUnitOfWork : IUnitOfWork
-    {
-        //ctor -> tab tab
+    {        
         public EFUnitOfWork(DbContext context)
         {
             //Customers = new RepositoryEF<customer>(context);
@@ -21,7 +17,6 @@ namespace Cibertec.UnitOfWork
             
         }
 
-        //public IRepository<customer> Customers => throw new NotImplementedException();
         //private set: solo puede ser modificado en esta clase
         //public IRepository<customer> Customers { get; private set; }
         public ICustomerRepository Customers { get; private set; }

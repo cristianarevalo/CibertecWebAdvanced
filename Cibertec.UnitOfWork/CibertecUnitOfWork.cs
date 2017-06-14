@@ -1,6 +1,4 @@
-﻿using Cibertec.Models;
-using Cibertec.Repositories;
-using Cibertec.Repositories.Northwind;
+﻿using Cibertec.Repositories.Northwind;
 using Cibertec.Repositories.Northwind.Dapper;
 
 namespace Cibertec.UnitOfWork
