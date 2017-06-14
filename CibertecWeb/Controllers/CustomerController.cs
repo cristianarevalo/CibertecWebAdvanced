@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Cibertec.Models;
 using Cibertec.UnitOfWork;
+using Cibertec.Web.Filter;
 
 namespace Cibertec.Controllers
 {
+    [ExceptionLoggerFilter]
     public class CustomerController : Controller
     {
         ////readonly: solo puede ser asigna en el contructor
@@ -32,5 +34,11 @@ namespace Cibertec.Controllers
         {
             return View(_unit.Customers.GetAll());
         }
+
+        public IActionResult Detail()
+        {
+            return View(_unit.Customers.SearchByNames("Maria", "Anders"));
+        }
+
     }
 }

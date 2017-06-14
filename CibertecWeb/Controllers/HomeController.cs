@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Cibertec.Web.Filter;
 
 namespace Cibertec.Controllers
 {
+    [ExceptionLoggerFilter]
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -31,5 +33,13 @@ namespace Cibertec.Controllers
         {
             return View();
         }
+
+        //enrutamiento por notacion
+        [Route("home/issue")]
+        public ActionResult CreateIssue()
+        {
+            throw new Exception("New error for demostration");
+        }
+        
     }
 }

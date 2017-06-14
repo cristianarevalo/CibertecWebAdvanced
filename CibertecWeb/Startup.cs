@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Cibertec.Models;
-using Microsoft.EntityFrameworkCore;
 using Cibertec.UnitOfWork;
+using NLog.Web;
+using Microsoft.AspNetCore.Http;
+using NLog.Extensions.Logging;
 
 namespace Cibertec
 {   //Aca inicia la aplicacion
@@ -23,6 +20,8 @@ namespace Cibertec
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            env.ConfigureNLog("NLogConfig.config");
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -48,8 +47,11 @@ namespace Cibertec
             //        )
             //    );
 
-            //para trabajar con dapper
+            //para trabajar con Dapper
             services.AddSingleton<IUnitOfWork>(option => new CibertecUnitOfWork(Configuration.GetConnectionString("Northwind")));
+
+            //NLog
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddMvc();
         }
@@ -57,8 +59,10 @@ namespace Cibertec
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            //loggerFactory.AddDebug();
+            loggerFactory.AddNLog();
+            app.AddNLogWeb();
 
             if (env.IsDevelopment())
             {
