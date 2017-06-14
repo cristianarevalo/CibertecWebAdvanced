@@ -26,5 +26,10 @@ namespace Cibertec.Controllers
         {
             return View(_unit.Orders.GetAll());
         }
+
+        public IActionResult Detail()
+        {
+            return View(_unit.Orders.SearchByOrderNumber("542378"));
+        }
     }
 }

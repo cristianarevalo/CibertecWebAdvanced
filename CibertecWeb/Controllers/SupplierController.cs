@@ -21,5 +21,10 @@ namespace Cibertec.Controllers
         {
             return View(_unit.Suppliers.GetAll());
         }
+
+        public IActionResult Detail()
+        {
+            return View(_unit.Suppliers.SearchByContactName("Martin Bein"));
+        }
     }
 }

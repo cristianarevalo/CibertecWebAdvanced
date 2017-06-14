@@ -21,5 +21,10 @@ namespace Cibertec.Controllers
         {
             return View(_unit.Products.GetAll());
         }
+
+        public IActionResult Detail()
+        {
+            return View(_unit.Products.SearchByProductName("Chang"));
+        }
     }
 }

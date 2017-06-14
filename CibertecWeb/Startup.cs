@@ -47,7 +47,7 @@ namespace Cibertec
             //        )
             //    );
 
-            //para trabajar con Dapper
+            ////para trabajar con Dapper
             services.AddSingleton<IUnitOfWork>(option => new CibertecUnitOfWork(Configuration.GetConnectionString("Northwind")));
 
             //NLog

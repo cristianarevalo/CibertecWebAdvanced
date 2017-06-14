@@ -20,5 +20,10 @@ namespace Cibertec.Web.Controllers
         {
             return View(_unit.OrderItems.GetAll());
         }
+
+        public IActionResult FindUnitPriceGreaterEqual()
+        {
+            return View(_unit.OrderItems.SearchByUnitPriceGreaterEqual(50));
+        }
     }
 }
