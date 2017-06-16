@@ -7,6 +7,8 @@ using Cibertec.UnitOfWork;
 using NLog.Web;
 using Microsoft.AspNetCore.Http;
 using NLog.Extensions.Logging;
+using Cibertec.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cibertec
 {   //Aca inicia la aplicacion
@@ -36,16 +38,16 @@ namespace Cibertec
             //    options => options.UseSqlServer(Configuration.GetConnectionString("Northwind"))
             //    );
 
-            ////genera una instancion por cada peticion (unit of work con EF)
-            //services.AddTransient<IUnitOfWork>(
-            //    option => new EFUnitOfWork(
-            //        new NorthwindDbContext(
-            //            new DbContextOptionsBuilder<NorthwindDbContext>()
-            //            .UseSqlServer(Configuration.GetConnectionString("Northwind"))
-            //            .Options
-            //            )
-            //        )
-            //    );
+            //genera una instancion por cada peticion (unit of work con EF)
+            services.AddTransient<IUnitOfWork>(
+                option => new EFUnitOfWork(
+                    new NorthwindDbContext(
+                        new DbContextOptionsBuilder<NorthwindDbContext>()
+                        .UseSqlServer(Configuration.GetConnectionString("Northwind"))
+                        .Options
+                        )
+                    )
+                );
 
             ////para trabajar con Dapper
             services.AddSingleton<IUnitOfWork>(option => new CibertecUnitOfWork(Configuration.GetConnectionString("Northwind")));
