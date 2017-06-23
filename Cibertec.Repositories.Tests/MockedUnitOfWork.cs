@@ -3,6 +3,7 @@ using Cibertec.UnitOfWork;
 using Moq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Cibertec.Repositories.Tests
@@ -23,16 +24,15 @@ namespace Cibertec.Repositories.Tests
     {
         public static Mock<IUnitOfWork> ConfigureCustomer(this Mock<IUnitOfWork> mock)
         {
-            mock.Setup(c => c.Customers.GetAll()).Returns(
-                new List<customer>
-                {
-                    new customer
+            var customerList = new List<customer>
+            {
+                new customer
                     {
                         Id = 1,
                         City = "Lima",
                         Country = "Peru",
                         FirstName = "Cristian",
-                        LastName = "Arevalo Solis",
+                        LastName = "Arevalo",
                         Phone = "955782336"
                     },
                     new customer
@@ -41,22 +41,26 @@ namespace Cibertec.Repositories.Tests
                         City = "Cajamarca",
                         Country = "Peru",
                         FirstName = "Ana",
-                        LastName = "Machuca Arevalo",
+                        LastName = "Machuca",
                         Phone = "955782336"
                     }
-                });
+            };
 
+            mock.Setup(c => c.Customers.GetAll()).Returns(customerList);
+            mock.Setup(c => c.Customers.Insert(It.IsAny<customer>())).Returns(1);
+            mock.Setup(c => c.Customers.Update(It.IsAny<customer>())).Returns(true);
+            mock.Setup(c => c.Customers.Delete(It.IsAny<customer>())).Returns(true);
 
-            mock.Setup(c => c.Customers.GetEntityById(1)).Returns(
-                new customer
+            mock.Setup(c => c.Customers.SearchByNames(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns((string firstName, string lastName) =>
                 {
-                    Id = 1,
-                    City = "Lima",
-                    Country = "Peru",
-                    FirstName = "Cristian",
-                    LastName = "Arevalo Solis",
-                    Phone = "955782336"
+                    return customerList.FirstOrDefault(x => x.FirstName == firstName
+                    && x.LastName == lastName);
                 });
+
+            mock.Setup(c => c.Customers.GetEntityById(It.IsAny<int>()))
+            .Returns((int id) => { return customerList.FirstOrDefault(x => x.Id == id);
+             });
 
             mock.Setup(c => c.Customers.Insert(null)).Returns(1);
 
