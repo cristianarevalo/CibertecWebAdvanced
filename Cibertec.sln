@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C847D773-A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Repositories.Tests", "Cibertec.Repositories.Tests\Cibertec.Repositories.Tests.csproj", "{D96BCAFF-775A-44F5-B20D-2503BD2EB391}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Web.Tests", "Cibertec.Web.Tests\Cibertec.Web.Tests.csproj", "{9A5D8DFA-DFFD-4D48-A5AD-FE2BFE4A0A21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.MockData.Test", "Cibertec.MoqData.Test\Cibertec.MockData.Test.csproj", "{5C62DD9A-4C76-4185-8D52-A2D9FF7FF6C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{D96BCAFF-775A-44F5-B20D-2503BD2EB391}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D96BCAFF-775A-44F5-B20D-2503BD2EB391}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D96BCAFF-775A-44F5-B20D-2503BD2EB391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A5D8DFA-DFFD-4D48-A5AD-FE2BFE4A0A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A5D8DFA-DFFD-4D48-A5AD-FE2BFE4A0A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A5D8DFA-DFFD-4D48-A5AD-FE2BFE4A0A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A5D8DFA-DFFD-4D48-A5AD-FE2BFE4A0A21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C62DD9A-4C76-4185-8D52-A2D9FF7FF6C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C62DD9A-4C76-4185-8D52-A2D9FF7FF6C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C62DD9A-4C76-4185-8D52-A2D9FF7FF6C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C62DD9A-4C76-4185-8D52-A2D9FF7FF6C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,5 +64,7 @@ Global
 		{B47AB581-8241-4E6F-B1F7-5EC82A2D8E6F} = {90F3533D-E380-4B3E-810B-B51FCB226E34}
 		{E2445439-BB3F-4F3B-A35F-FCD0B58F6D11} = {90F3533D-E380-4B3E-810B-B51FCB226E34}
 		{D96BCAFF-775A-44F5-B20D-2503BD2EB391} = {C847D773-A3E0-45E9-9976-BA97E6599094}
+		{9A5D8DFA-DFFD-4D48-A5AD-FE2BFE4A0A21} = {C847D773-A3E0-45E9-9976-BA97E6599094}
+		{5C62DD9A-4C76-4185-8D52-A2D9FF7FF6C2} = {C847D773-A3E0-45E9-9976-BA97E6599094}
 	EndGlobalSection
 EndGlobal
