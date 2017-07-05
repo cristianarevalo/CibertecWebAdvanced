@@ -9,6 +9,6 @@ namespace Cibertec.UnitOfWork
         IProductRepository Products { get; }
         ISupplierRepository Suppliers { get; }
         IOrderItemRepository OrderItems { get; }
-        
+        IUserRepository Users { get; }
     }
 }

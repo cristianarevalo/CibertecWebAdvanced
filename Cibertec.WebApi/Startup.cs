@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Cibertec.UnitOfWork;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.Http;
+using Cibertec.WebApi.Provider;
 
 namespace Cibertec.WebApi
 {
@@ -37,6 +39,9 @@ namespace Cibertec.WebApi
             services.AddResponseCompression();
 
             services.AddSingleton<IUnitOfWork>(option => new CibertecUnitOfWork(Configuration.GetConnectionString("Northwind")));
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddMvc();
         }
 
@@ -49,7 +54,7 @@ namespace Cibertec.WebApi
             //compresion a nivel de la aplicacion
             app.UseResponseCompression();
 
-
+            app.UseSimpleToken();
             app.UseMvc();
         }
     }
