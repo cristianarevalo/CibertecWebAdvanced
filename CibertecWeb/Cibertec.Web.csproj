@@ -31,6 +31,7 @@
     <ProjectReference Include="..\Cibertec.Models\Cibertec.Models.csproj" />
     <ProjectReference Include="..\Cibertec.Repositories\Cibertec.Repositories.csproj" />
     <ProjectReference Include="..\Cibertec.UnitOfWork\Cibertec.UnitOfWork.csproj" />
+    <ProjectReference Include="..\Cibertec.WebApi\Cibertec.WebApi.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="NLogConfig.config">

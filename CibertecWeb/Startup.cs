@@ -38,6 +38,9 @@ namespace Cibertec
             //    options => options.UseSqlServer(Configuration.GetConnectionString("Northwind"))
             //    );
 
+
+
+
             //genera una instancion por cada peticion (unit of work con EF)
             services.AddTransient<IUnitOfWork>(
                 option => new EFUnitOfWork(
@@ -61,6 +64,8 @@ namespace Cibertec
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+
+
             //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             //loggerFactory.AddDebug();
             loggerFactory.AddNLog();

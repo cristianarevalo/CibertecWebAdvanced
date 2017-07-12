@@ -9,10 +9,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot/app\login.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\app\app.config.js" />
+    <Content Include="wwwroot\app\app.controller.js" />
     <Content Include="wwwroot\app\app.js" />
     <Content Include="wwwroot\app\app.routes.js" />
     <Content Include="wwwroot\app\home.html" />
     <Content Include="wwwroot\app\login.html" />
+    <Content Include="wwwroot\app\public\login\index.html" />
+    <Content Include="wwwroot\app\public\login\login.controller.js" />
+    <Content Include="wwwroot\app\shared\authentication.service.js" />
+    <Content Include="wwwroot\app\shared\data.service.js" />
+    <Content Include="wwwroot\app\shared\setting.service.js" />
+    <Content Include="wwwroot\Libreries\angular\angular-animate.js" />
+    <Content Include="wwwroot\Libreries\angular\angular-animate.min.js" />
+    <Content Include="wwwroot\Libreries\angular\angular-animate.min.js.map" />
+    <Content Include="wwwroot\Libreries\angular\angular-local-storage.js" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />

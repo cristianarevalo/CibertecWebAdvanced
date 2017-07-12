@@ -17,7 +17,7 @@
             })
             .state("login", {
                 url: "/login",
-                templateUrl: 'app/login.html'
+                templateUrl: 'app/public/login/index.html'
             })
             .state("otherwise", {
                 url: '*path',
