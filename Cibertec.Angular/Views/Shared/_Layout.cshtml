@@ -30,6 +30,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a ng-if="!vm.validate()" ui-sref="login" ui-sref-activate="activate">Login</a></li>
                     <li><a ng-if="vm.validate()" ng-click="vm.logout()" href="#" ui-sref-active="active">Logout</a></li>
+                    <li><a ng-if="vm.validate()" ui-sref="product" href="#" ui-sref-active="active">Product</a></li>
                 </ul>
             </div>
         </div>
@@ -59,5 +60,7 @@
     <script src="~/app/shared/setting.service.js"></script>
 
     <script src="~/app/public/login/login.controller.js"></script>
+    <script src="~/app/private/product/product.controller.js"></script>
+    <script src="~/app/private/product/directives/product-card/product-card.js"></script>
 </body>
 </html>

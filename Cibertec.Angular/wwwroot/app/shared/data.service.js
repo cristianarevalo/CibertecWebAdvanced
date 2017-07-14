@@ -7,7 +7,7 @@
 
     function dataService($http) {
         var service = {};
-        service.getDate = getData;
+        service.getData = getData;
         service.postData = postData;
         service.putData = putData;
         service.deleteData = deleteData;
