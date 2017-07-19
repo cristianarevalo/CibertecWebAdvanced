@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Cibertec.Angular</title>
 
-    <environment names="Development">
-        <link rel="stylesheet" href="~/Libreries/bootstrap/css/bootstrap.css" />
+    <environment names="Development, Production">
+        <link rel="stylesheet" href="~/Libreries/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
 </head>
@@ -42,25 +42,18 @@
             <p>&copy; 2017 - Cibertec.Angular</p>
         </footer>
     </div>
-    <script src="~/Libreries/angular/angular.js"></script>
-    <script src="~/Libreries/angular/angular-ui-router.js"></script>
-    <script src="~/Libreries/angular/angular-local-storage.js"></script>
-    <script src="~/Libreries/angular/angular-animate.js"></script>
+    <environment names="Development">
+        <script src="~/js/bootstrap.js"></script>
+        <script src="~/js/angular.js"></script>
+        <script src="~/js/app-site.js"></script>
+        <script src="~/js/app-cibertec.js"></script>
+    </environment>
+    <environment names="Production">
+        <script src="~/js/bootstrap.min.js"></script>
+        <script src="~/js/angular.min.js"></script>
+        <script src="~/js/app-site.min.js"></script>
+        <script src="~/js/app-cibertec.min.js"></script>
+    </environment>
 
-    <script src="~/Libreries/jquery/jquery-3.2.1.js"></script>
-    <script src="~/Libreries/bootstrap/js/bootstrap.js"></script>
-
-    <script src="~/app/app.js"></script>
-    <script src="~/app/app.routes.js"></script>
-    <script src="~/app/app.config.js"></script>
-    <script src="~/app/app.controller.js"></script>
-
-    <script src="~/app/shared/data.service.js"></script>
-    <script src="~/app/shared/authentication.service.js"></script>
-    <script src="~/app/shared/setting.service.js"></script>
-
-    <script src="~/app/public/login/login.controller.js"></script>
-    <script src="~/app/private/product/product.controller.js"></script>
-    <script src="~/app/private/product/directives/product-card/product-card.js"></script>
 </body>
 </html>
