@@ -36,6 +36,7 @@
     <Content Include="wwwroot\Libreries\angular\angular-animate.min.js" />
     <Content Include="wwwroot\Libreries\angular\angular-animate.min.js.map" />
     <Content Include="wwwroot\Libreries\angular\angular-local-storage.js" />
+    <Content Include="wwwroot\Libreries\angular\ui-bootstrap.js" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />

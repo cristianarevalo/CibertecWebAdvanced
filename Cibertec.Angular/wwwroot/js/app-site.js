@@ -1,7 +1,7 @@
 (function () { //auto ejecucion de IIFE
     'use strict'; //para que las variables sea declaradas
 
-    angular.module('app', ['ui.router', 'LocalStorageModule']); //creamos el modulo app e injectando la libreria ui.router
+    angular.module('app', ['ui.router', 'LocalStorageModule','ui.bootstrap']); //creamos el modulo app e injectando la libreria ui.router
 })(); //() ejecuta la funcion
 (function () {
     'use strict'; //Exijimos que valide las variables
@@ -38,7 +38,15 @@
 (function () {
     'use strict';
 
-    angular.module('app').run(run);
+    angular.module('app').config(setup).run(run);
+
+    setup.$inject = ['$compileProvider'];
+
+    function setup($compileProvider)
+    {
+        //deshabilitando el modo debug de angular
+        $compileProvider.debugInfoEnabled(false);
+    }
 
     run.$inject = ['$http', '$state', 'localStorageService', 'configService'];
 

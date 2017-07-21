@@ -1,6 +1,5 @@
 ﻿using Cibertec.Models;
 using Cibertec.UnitOfWork;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cibertec.WebApi.Controllers

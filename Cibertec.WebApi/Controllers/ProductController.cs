@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Cibertec.Models;
 using Microsoft.AspNetCore.Mvc;
 using Cibertec.UnitOfWork;
+using Microsoft.AspNetCore.Routing;
 
 namespace Cibertec.WebApi.Controllers
 {
@@ -19,6 +17,29 @@ namespace Cibertec.WebApi.Controllers
         public IActionResult List()
         {
             return Ok(_unit.Products.GetAll());
+        }
+
+        [HttpGet]
+        [Route("listPaginated")]
+        public IActionResult List(int page, int pageSize)
+        {
+            int startRow = ((page - 1) * pageSize) + 1;
+            int endRow = page * pageSize;
+
+            return Ok(_unit.Products.ListProductPaginated(startRow, endRow));
+        }
+
+        [HttpGet]
+        [Route("count")]
+        public IActionResult TotalRows()
+        {
+            return Ok(_unit.Products.TotalRows());
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] product product)
+        {
+            return Ok(_unit.Products.Insert(product));
         }
     }
 }

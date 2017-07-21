@@ -13,7 +13,8 @@
     "inputFiles": [
       "wwwroot/libreries/angular/angular.js",
       "wwwroot/libreries/angular/angular-ui-router.js",
-      "wwwroot/libreries/angular/angular-local-storage.js"
+      "wwwroot/libreries/angular/angular-local-storage.js",
+      "wwwroot/libreries/angular/ui-bootstrap.js"
     ],
     // Optionally specify minification options
     "minify": {
@@ -26,7 +27,7 @@
   {
     "outputFileName": "wwwroot/js/bootstrap.js",
     "inputFiles": [
-      "wwwroot/libreries/jquery/jquery.js",
+      "wwwroot/libreries/jquery/jquery-3.2.1.js",
       "wwwroot/libreries/bootstrap/js/bootstrap.min.js"
     ],
     "minify": {
