@@ -31,6 +31,7 @@
                     <li><a ng-if="!vm.validate()" ui-sref="login" ui-sref-activate="activate">Login</a></li>
                     <li><a ng-if="vm.validate()" ng-click="vm.logout()" href="#" ui-sref-active="active">Logout</a></li>
                     <li><a ng-if="vm.validate()" ui-sref="product" href="#" ui-sref-active="active">Product</a></li>
+                    <li><a ng-if="vm.validate()" ui-sref="csv-viewer" href="#" ui-sref-active="active">csv-viewer</a></li>
                 </ul>
             </div>
         </div>
@@ -47,6 +48,7 @@
         <script src="~/js/angular.js"></script>
         <script src="~/js/app-site.js"></script>
         <script src="~/js/app-cibertec.js"></script>
+        <script src="~/js/worker.js"></script>
     </environment>
     <environment names="Production">
         <script src="~/js/bootstrap.min.js"></script>

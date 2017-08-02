@@ -21,6 +21,8 @@
     <Content Include="wwwroot\app\components\modal\modal.directive.js" />
     <Content Include="wwwroot\app\home.html" />
     <Content Include="wwwroot\app\login.html" />
+    <Content Include="wwwroot\app\private\product\directives\csv-viewer\csv.controller.js" />
+    <Content Include="wwwroot\app\private\product\directives\csv-viewer\index.html" />
     <Content Include="wwwroot\app\private\product\directives\product-card\product-card.html" />
     <Content Include="wwwroot\app\private\product\directives\product-card\product-card.js" />
     <Content Include="wwwroot\app\private\product\directives\product-form\product-form.html" />
@@ -32,6 +34,7 @@
     <Content Include="wwwroot\app\shared\authentication.service.js" />
     <Content Include="wwwroot\app\shared\data.service.js" />
     <Content Include="wwwroot\app\shared\setting.service.js" />
+    <Content Include="wwwroot\js\worker.js" />
     <Content Include="wwwroot\Libreries\angular\angular-animate.js" />
     <Content Include="wwwroot\Libreries\angular\angular-animate.min.js" />
     <Content Include="wwwroot\Libreries\angular\angular-animate.min.js.map" />

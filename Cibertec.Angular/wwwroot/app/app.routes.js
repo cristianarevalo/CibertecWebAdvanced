@@ -23,6 +23,10 @@
                 url: "/product",
                 templateUrl:'app/private/product/index.html'
             })
+            .state("csv-viewer", {
+                url: "/csv-viewer",
+                templateUrl: 'app/private/product/directives/csv-viewer/index.html'
+            })
             .state("otherwise", {
                 url: '*path',
                 templateUrl: 'app/home.html'
