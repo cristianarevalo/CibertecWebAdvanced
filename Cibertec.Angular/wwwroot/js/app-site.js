@@ -18,23 +18,23 @@
         $stateProvider
             .state("home", {
                 url: "/home",
-                templateUrl: 'app/home.html'
+                templateUrl: './app/home.html'
             })
             .state("login", {
                 url: "/login",
-                templateUrl: 'app/public/login/index.html'
+                templateUrl: './app/public/login/index.html'
             })
             .state("product", {
                 url: "/product",
-                templateUrl:'app/private/product/index.html'
+                templateUrl:'./app/private/product/index.html'
             })
             .state("csv-viewer", {
                 url: "/csv-viewer",
-                templateUrl: 'app/private/product/directives/csv-viewer/index.html'
+                templateUrl: './app/private/product/directives/csv-viewer/index.html'
             })
             .state("otherwise", {
                 url: '*path',
-                templateUrl: 'app/home.html'
+                templateUrl: './app/home.html'
             });
     }
 
@@ -46,23 +46,46 @@
 
     setup.$inject = ['$compileProvider'];
 
-    function setup($compileProvider)
-    {
+    function setup($compileProvider) {
         //deshabilitando el modo debug de angular
         $compileProvider.debugInfoEnabled(false);
     }
 
     run.$inject = ['$http', '$state', 'localStorageService', 'configService'];
 
-    function run($http, $state, localStorageService, configService)
-    {
+    function run($http, $state, localStorageService, configService) {
         var user = localStorageService.get('userToken');
         if (user && user.token) {
             $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('userToken').token;
             configService.setLogin(true);
+
+            //cargando configuracion solo cuando los usuario sean autenticados
+            startSignaR();
+
         }
         else $state.go('login');
     }
+
+    function startSignaR() {
+        $.connection.hub.logging = true;
+        var notificationHubProxy = $.connection.notificationHub;
+
+        //callback
+        notificationHubProxy.client.updateProduct = function (id) {
+            console.log(id);
+        };
+
+        $.connection.hub.start()
+            .done(function () {
+                console.log("Hub started success");
+            })
+            .fail(function (error) {
+                console.log(error);
+            });
+
+
+    }
+
 })();
 (function () {
     'use strict';

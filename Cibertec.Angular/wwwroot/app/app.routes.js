@@ -13,23 +13,23 @@
         $stateProvider
             .state("home", {
                 url: "/home",
-                templateUrl: 'app/home.html'
+                templateUrl: './app/home.html'
             })
             .state("login", {
                 url: "/login",
-                templateUrl: 'app/public/login/index.html'
+                templateUrl: './app/public/login/index.html'
             })
             .state("product", {
                 url: "/product",
-                templateUrl:'app/private/product/index.html'
+                templateUrl:'./app/private/product/index.html'
             })
             .state("csv-viewer", {
                 url: "/csv-viewer",
-                templateUrl: 'app/private/product/directives/csv-viewer/index.html'
+                templateUrl: './app/private/product/directives/csv-viewer/index.html'
             })
             .state("otherwise", {
                 url: '*path',
-                templateUrl: 'app/home.html'
+                templateUrl: './app/home.html'
             });
     }
 

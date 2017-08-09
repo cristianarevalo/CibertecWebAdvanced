@@ -34,6 +34,7 @@
     <Content Include="wwwroot\app\shared\authentication.service.js" />
     <Content Include="wwwroot\app\shared\data.service.js" />
     <Content Include="wwwroot\app\shared\setting.service.js" />
+    <Content Include="wwwroot\js\jquery.signalR.min.js" />
     <Content Include="wwwroot\js\worker.js" />
     <Content Include="wwwroot\Libreries\angular\angular-animate.js" />
     <Content Include="wwwroot\Libreries\angular\angular-animate.min.js" />
