@@ -41,5 +41,19 @@ namespace Cibertec.WebApi.Controllers
         {
             return Ok(_unit.Products.Insert(product));
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult Get(int id) {
+            if (id <= 0) return BadRequest();
+            return Ok(_unit.Products.GetEntityById(id));
+        }
+
+        [HttpPut]
+        public IActionResult Put([FromBody] product product)
+        {
+            _unit.Products.Update(product);
+            return Ok(new { status = true });
+        }
     }
 }
